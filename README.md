@@ -4,6 +4,24 @@
 
 ---
 
+## Academic Background
+
+This project was built as a capstone application of concepts from the **[UT Austin AI & Machine Learning](https://onlineexeced.mccombs.utexas.edu/online-ai-machine-learning-course)** program (McCombs School of Business, 23-week executive program).
+
+Specific modules applied:
+
+| Module | Concept Applied |
+|--------|----------------|
+| **Course 03 — Generative AI for NLP** | Prompt engineering — the course teaches how to write effective prompts, but not how to *maintain* them. This project fills that gap with a regression testing framework for prompts |
+| **Course 03 — Generative AI for NLP** | Responsible AI implementation — systematically verifying that prompts behave as expected is a core responsible AI practice |
+| **Course 05 — Deploying AI Solutions** | CI/CD integration — the GitHub Actions workflow applies the deployment skills from Course 05 to automate quality gates on every code push |
+| **Course 05 — Deploying AI Solutions** | Integrating LLM calls into production workflows, with structured output validation and latency tracking |
+| **Tools: OpenAI / Anthropic APIs** | The LLM runner and `llm_judge` assertion type use the API patterns taught throughout the program |
+
+The course teaches you to build AI solutions — this project solves the **production reliability problem** that comes after: when you change a prompt, how do you know you haven't broken anything? Prompt regression testing is how mature AI teams answer that question, and it directly applies the deployment discipline from Course 05.
+
+---
+
 ## What Is This?
 
 When you change a prompt in production — even slightly — you can break behaviors you rely on. Maybe your summarization prompt used to return concise 2-sentence summaries, but after tweaking the instructions for a new use case, it now returns 10-paragraph essays. Maybe your classification prompt used to output valid JSON, but now outputs prose with the answer buried inside.
