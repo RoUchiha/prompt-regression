@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "prompt-regression"
+version = "0.1.0"
+description = "CI/CD-integrated prompt regression testing — YAML test cases, 7 assertion types, GitHub Actions gating"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.25.0",
+    "pydantic>=2.6.0",
+    "pyyaml>=6.0",
+    "jinja2>=3.1.0",
+    "rich>=13.7.0",
+    "typer>=0.12.0",
+    "numpy>=1.26.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.1.0",
+    "pytest-cov>=5.0.0",
+]
+
+[project.scripts]
+prompt-regression = "prompt_regression.cli:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=src/prompt_regression --cov-report=term-missing"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/prompt_regression"]

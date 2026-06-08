@@ -1,0 +1,15 @@
+id: tc-002
+name: "Sentiment classification — JSON output"
+prompt_template: "Classify the sentiment of the following text. Respond ONLY with JSON in this format: {\"sentiment\": \"positive\"|\"negative\"|\"neutral\", \"confidence\": <float 0-1>}\n\nText: {{ text }}"
+inputs:
+  text: "I absolutely love this product! It exceeded all my expectations and the customer service was fantastic."
+assertions:
+  - type: json_schema
+    value: null
+  - type: contains
+    value: "positive"
+    case_insensitive: true
+  - type: max_length
+    value: 200
+  - type: latency_ms
+    value: 10000

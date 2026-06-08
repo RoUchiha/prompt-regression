@@ -1,0 +1,18 @@
+id: tc-001
+name: "Summarization — conciseness and quality"
+prompt_template: "Summarize the following text in 2-3 sentences:\n\n{{ text }}"
+inputs:
+  text: "Artificial intelligence (AI) is intelligence demonstrated by machines, as opposed to the natural intelligence displayed by animals including humans. AI research has been defined as the field of study of intelligent agents, which refers to any system that perceives its environment and takes actions that maximize its chance of achieving its goals. The term artificial intelligence had previously been used to describe machines that mimic and display human cognitive skills associated with the human mind, such as learning and problem-solving. This definition has since been rejected by major AI researchers who now describe AI in terms of rationality and acting rationally, which does not limit how intelligence can be articulated."
+assertions:
+  - type: max_length
+    value: 600
+  - type: min_length
+    value: 50
+  - type: not_contains
+    value: "I cannot"
+    case_insensitive: true
+  - type: not_contains
+    value: "I'm unable"
+    case_insensitive: true
+  - type: regex
+    pattern: "^[A-Z]"
